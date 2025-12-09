@@ -41,9 +41,7 @@ public class ProducerController {
     public ResponseEntity<ProducersGetResponse> findById(@PathVariable Long id) {
         log.debug("Request to find producer by id: {}", id);// Boa prática sempre termos logs
 
-        var producerGetResponse = Producers.getProducers()
-                .stream().filter(producer -> producer.getId().equals(id))
-                .findFirst().map(MAPPER::toProducersGetResponse).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "producer not found"));
+        var producerGetResponse = .map(MAPPER::toProducersGetResponse).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "producer not found"));
 
         return ResponseEntity.ok(producerGetResponse);
     }

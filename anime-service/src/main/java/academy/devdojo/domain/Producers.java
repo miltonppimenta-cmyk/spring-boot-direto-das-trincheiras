@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -23,18 +21,7 @@ public class Producers {
     private LocalDateTime createdAt;
     private String address; //esta alteração não tem nenhum tipo de impacto no contrato com os clientes devido ao desacoplamento
 
-    private static List<Producers> producers = new ArrayList<>();
 
-    static {
-        var mappa = Producers.builder().id(1L).name("Mappa").createdAt(LocalDateTime.now()).build();
-        var kyotoAnimation = Producers.builder().id(2L).name("Kyoto Animation").createdAt(LocalDateTime.now()).build();
-        var madhouse = Producers.builder().id(3L).name("Madhouse").createdAt(LocalDateTime.now()).build();
-        producers.addAll(List.of(mappa, kyotoAnimation, madhouse));
-    }
-
-    public static List<Producers> getProducers() {
-        return producers;
-    }
 }
 
 //    public static List<Anime> getAnimes() {
